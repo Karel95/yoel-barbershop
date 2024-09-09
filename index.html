@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos -->
+    <meta charset="utf-8" />
+    <meta name="author" content="Yoel Barbershop" />
+    <meta
+      name="description"
+      content="Yoel Barbershop official website."
+    />
+    <meta
+      name="keywords"
+      content="Barbershop"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Titulo -->
+    <title>Yoel Barbershop</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/barbershop-icon.png" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- Iconos de Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <!-- CSS -->
+    <!-- <link href="style.css" rel="stylesheet" /> -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- CSS -->
+    <style>
+      :root {
+        --primary-color: #bb86fc;
+        --secondary-color: #03dac6;
+        --background-color: #ffffff;
+        --text-primary-color: #212121;
+        --text-secondary-color: #757575;
+        --sections-background: #f5f5f5;
+        --borders-color: #e0e0e0;
+        --card-bg-color: #ffffff;
+        --footer-height: 60px;
+      }
+      /*  */
+      .dark-mode {
+        --primary-color: #6200ee;
+        --secondary-color: #018786;
+        --background-color: #121212;
+        --text-primary-color: #e0e0e0;
+        --text-secondary-color: #b0b0b0;
+        --sections-background: #1e1e1e;
+        --borders-color: #292929;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: var(--background-color);
+        color: var(--primary-color);
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "sidebar main"
+          "sidebar footer";
+        grid-template-rows: var(--header-height) 1fr var(--footer-height);
+        min-height: 100vh;
+        transition: grid-template-columns 0.3s ease, background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      h1 {
+        color: var(--text-primary-color);
+      }
+
+      p {
+        color: var(--text-secondary-color);
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* header */
+      header {
+        grid-area: header;
+        border: 2px solid var(--borders-color);
+        backdrop-filter: blur(1px); /* Ajusta el valor para más o menos desenfoque */
+        background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente para resaltar el blur */
+        color: #212121;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--header-height);
+        z-index: auto;
+      }
+
+      .logo {
+        margin: 1rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      nav a {
+        transition: opacity 0.3s ease;
+      }
+
+      nav a:hover {
+        opacity: 0.8;
+      }
+
+      .navbar {
+        margin: 2rem;
+        padding: 1rem;
+        border-radius: 10px;
+        color: var(--text-primary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar-nav span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 75px;
+        height: 99%;
+        background: linear-gradient(45deg, #2e3192, #1bffff);
+        border-radius: 8px;
+        transition: 0.5s ease;
+      }
+
+      .navbar-nav li {
+        z-index: 1;
+      }
+
+      .navbar-nav li:nth-child(1):hover ~ span {
+        left: 75px;
+        width: 60px;
+      }
+
+      .navbar-nav li:nth-child(2):hover ~ span {
+        left: 135px;
+        width: 85px;
+      }
+
+      .navbar-nav li:nth-child(3):hover ~ span {
+        left: 220px;
+        width: 100px;
+      }
+
+      .btn-outline-success-changed {
+        --bs-btn-color: rgb(63, 106, 224);
+        --bs-btn-border-color: rgb(63, 106, 224);
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: rgb(63, 106, 224);
+        --bs-btn-hover-border-color: rgb(63, 106, 224);
+        --bs-btn-focus-shadow-rgb: 25, 135, 84;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: rgb(63, 106, 224);
+        --bs-btn-active-border-color: rgb(63, 106, 224);
+        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        --bs-btn-disabled-color: rgb(63, 106, 224);
+        --bs-btn-disabled-bg: transparent;
+        --bs-btn-disabled-border-color: rgb(63, 106, 224);
+        --bs-gradient: none;
+      }
+
+      .navbar-expand-lg .container-fluid {
+        margin-left: 1rem;
+        border: none;
+      }
+
+      .container-fluid {
+        width: 60%;
+      }
+
+      .show {
+        background: var(--sections-background);
+        transition: grid-template-columns 0.3s ease;
+      }
+
+      .navbar-expand-lg .show {
+        padding: 2rem;
+        border: 3px solid var(--borders-color);
+      }
+
+      .nav-link {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .nav-link:hover {
+        color: #212121;
+      }
+
+      .nav-link:active {
+        color: #212121;
+      }
+
+      .nav-link.disabled {
+        color: gray;
+      }
+
+      .offcanvas.show {
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+
+      .navbar-toggler {
+        background: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
+      .navbar-toggler:hover {
+        opacity: 0.75;
+      }
+
+      .dropdown-item {
+        color: var(--text-primary-color);
+      }
+
+      #lang-toggle {
+        margin: 1px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-primary-color);
+      }
+
+      #lang-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .mode-switcher {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .theme-toggle {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      /* main */
+      main {
+        grid-area: main;
+        padding: 0;
+        overflow-y: auto;
+        transition: margin-left 0.3s ease;
+      }
+
+      /* hero */
+
+      .hero {
+        background-image: url("images/UniversalUpscaler_Logo.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        margin: 1rem;
+        min-height: 450px;
+        text-align: center;
+        padding: 3rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-principal {
+        padding: 2rem;
+        padding-top: 5rem;
+      }
+
+      .hero-imagen {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+      }
+
+      .hero-principal h2 {
+        color: var(--text-secondary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        color: var(--text-primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #27ae60;
+      }
+
+      /* carouseL */
+      .carousel {
+        width: 100%;
+      }
+
+      .carousel-inner {
+        width: 100%;
+      }
+
+      .carousel-caption p {
+        color: #000;
+        text-shadow: 2px 2px 5px rgb(255, 255, 255); /* Desplazamiento en x, desplazamiento en y, desenfoque, color de la sombra */
+        font-size: 1.5rem;
+      }
+
+      /* sobre mi */
+
+      .sobre-mi {
+        margin-top: 1rem;
+        padding: 1rem;
+        padding-top: 3rem;
+        margin-bottom: 5rem;
+      }
+
+      .sobre-mi .contenedor {
+        max-width: 600px;
+        text-align: center;
+      }
+
+      .seccion-titulo {
+        color: var(--text-primary-color);
+        font-size: 2rem;
+        padding: 15px 0;
+      }
+
+      .seccion-texto {
+        color: var(--text-secondary-color);
+        font-size: 1.2rem;
+      }
+
+
+      /* Contacto */
+
+      .contacto .container {
+        max-width: 1100px;
+        min-height: 200px;
+        padding: 20px;
+      }
+
+      .contacto .rectangulo {
+        margin-top: 10rem;
+        background: linear-gradient(155deg, rgb(13, 110, 253), #00fffc);
+        /* background-color: rgb(13, 110, 253); */
+        border-radius: 10px;
+        box-shadow: 0px 1px 4px 1px white;
+      }
+
+      .contacto .row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .contacto .descripcion {
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      .contacto button {
+        color: white;
+        font-weight: bold;
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 1.25em 2em;
+        margin: 10px;
+        border-radius: 100px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .contacto button:hover {
+        background-color: white;
+        color: black;
+        transform: scale(1.2) translateY(5px);
+      }
+
+      .contacto button i {
+        color: white;
+        font-size: 1.3rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .contacto button:hover i {
+        color: black;
+      }
+
+      /* Pie de pagina (footer) */
+
+      footer {
+        min-height: 500px;
+        grid-area: footer;
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .footer-logo {
+        height: 80px;
+        width: 80px;
+        margin: 10px;
+      }
+
+      .footer-texto {
+        color: var(--text-primary-color);
+        font-size: 1.5rem;
+        padding: 20px;
+        margin-bottom: 30px;
+        font-family: "Quicksand", sans-serif;
+      }
+
+      /*  */
+      .iconos-redes-sociales {
+        position: relative;
+        background: linear-gradient(155deg, #00fffc, #eee);
+        display: flex;
+        border-radius: 10px;
+        box-shadow: 1px 2px 5px 2px rgb(13, 110, 253);
+      }
+
+      .iconos-redes-sociales a {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+        margin: 10px;
+        border: 2px solid black;
+        border-radius: 50%;
+        transition: all 0.2s ease-in;
+      }
+
+      .iconos-redes-sociales i {
+        color: black;
+        font-size: 1.5rem;
+        transition: all 0.2s ease-in;
+      }
+
+      .iconos-redes-sociales a:hover {
+        background-color: black;
+        border: 2px solid rgb(13, 110, 253);
+        transform: translateY(-5px);
+      }
+
+      .iconos-redes-sociales a:hover i {
+        color: white;
+      }
+
+      .derechos-de-autor {
+        font-size: 15px;
+        color: var(--text-secondary-color);
+        padding: 20px;
+      }
+
+      /* @media */
+      /* Adaptable (Responsivo) */
+
+      @media screen and (max-width: 400px) {
+        .overlay p {
+          font-size: 18px;
+        }
+
+        .overlay i {
+          font-size: 40px;
+        }
+      }
+      @media screen and (min-width: 992px) {
+        header {
+          height: var(--header-height);
+        }
+
+        .navbar-expand-lg .show {
+          border: none;
+        }
+
+        .offcanvas.show {
+          border: none;
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        body {
+          grid-template-areas:
+            "header"
+            "main"
+            "footer";
+          grid-template-columns: 1fr;
+        }
+        .navbar {
+          margin: 0rem;
+          padding: 0rem;
+          border-radius: 0;
+          height: 5rem;
+          z-index: 1;
+        }
+
+        .logo {
+          margin: 1rem;
+          padding-right: 1rem;
+          width: 3rem;
+          height: 3rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        .mode-switcher {
+          position: fixed;
+          top: 1.5rem;
+          right: 1.5rem;
+        }
+
+        .offcanvasButton {
+          position: fixed;
+          z-index: 2;
+          margin-top: 1.5rem;
+          margin-left: 5rem;
+        }
+
+        main {
+          margin-top: 6rem;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra de navegacion -->
+    <header class="navbar fixed-top navbar-expand-lg">
+      <img
+        class="logo rounded-circle fixed-top"
+        src="images/barbershop-icon.png"
+        alt="Yoel Barbershop photo"
+      />
+      <div class="container-fluid">
+        <div
+          class="collapse navbar-collapse container-fluid"
+          id="navbarSupportedContent"
+        >
+          <div class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sobre-mi">About me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact me</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">More...</a>
+            </li> -->
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="mode-switcher d-flex" role="search">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-dark btn-outline-success-changed" type="submit">Search</button> -->
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+      </div>
+    </header>
+
+
+    <main>
+      <!-- Seccion Hero -->
+      <section class="hero align-items-stretch"></section>
+
+      <!-- carousel -->
+      <section
+        id="carousel col-12"
+        class="carousel-section carousel-dark slide"
+        data-bs-ride="carousel"
+      >
+        <div id="carouselExampleCaptions" class="carousel carousel-dark slide">
+          <!-- carouselExampleCaptions -->
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="images/AI/1472x832/_0.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p>
+                  Nuestra pasión por la barbería nos lleva a brindarte lo mejor en cortes y estilo.<br/> 
+                  Nos preocupamos por cada detalle para que salgas siempre con tu mejor versión.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="images/AI/1472x832/_1.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p>
+                  Profesionalismo, calidad y estilo. Trabajamos para resaltar tu mejor imagen.<br/> 
+                  ¡Reserva tu cita hoy mismo y déjanos cuidar de tu estilo!
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="images/AI/1472x832/_2.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p>
+                  Cortar el cabello no es solo una rutina, es un arte.<br/> 
+                  ¡Reserva tu experiencia personalizada con nosotros!
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="images/AI/1472x832/_3.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p>
+                  Relájate, disfruta, y déjanos encargarnos de que luzcas increíble.<br/> 
+                  ¡Una experiencia de barbería como ninguna otra!
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="images/AI/1472x832/_4.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p>
+                  Porque mereces más que un simple corte, ven y vive una experiencia premium.<br/> 
+                  ¡Reserva tu cita hoy mismo y déjanos cuidar de tu estilo!
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Sobre mi -->
+      <section id="sobre-mi" class="sobre-mi">
+        <div
+          class="mission hero-principal d-flex flex-column justify-content-center align-items-center"
+        >
+          <h1>¡Bienvenido a Yoel Barbershop!</h1>
+          <h2>
+            Donde el estilo y la precisión se encuentran para ofrecerte una experiencia única de cuidado personal.
+            En Yoel Barbershop, creemos que un buen corte de cabello es más que solo estética, es una experiencia.
+          </h2>
+        </div>
+        <div class="vision contenedor">
+          <h2 class="seccion-titulo">
+            Servicios:
+          </h2>
+          <p class="seccion-texto">
+            Transformamos tu look con cortes clásicos y modernos, afeitados tradicionales y cuidado de barba.
+            Desde cortes de cabello personalizados hasta afeitados al estilo clásico, ofrecemos una experiencia que te hará sentir renovado.
+            ¡Descubre nuestros servicios!
+          </p>
+        </div>
+      </section>
+
+      <!-- cards -->
+
+
+      <!-- Contacto -->
+      <section id="contacto" class="contacto seccion-oscura">
+        <div class="container">
+          <div
+            class="container text-center rectangulo d-flex justify-content-evenly"
+          >
+            <div class="row">
+              <div class="col-12 col-md-4 seccion-titulo">
+                ¿Listo para tu próximo cambio de look?
+              </div>
+              <div class="col-12 col-md-4 descripcion">
+                ¡Contáctanos o visítanos!
+              </div>
+              <div class="col-12 col-md-4">
+                <a
+                  title="Yoel Barbershop"
+                  href="https://chat.whatsapp.com/BZzKA7jtua47NIzaYXnoOd"
+                >
+                  <button type="button">
+                    Whatsapp 
+                    <i class="bi bi-whatsapp"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de pagina (footer) -->
+    <footer
+      id="footer"
+      class="seccion-oscura d-flex flex-column align-items-center justify-content-center"
+    >
+      <img
+        class="footer-logo rounded-circle"
+        src="images/barbershop-icon.png"
+        alt="Yoel Barbershop"
+      />
+      <p class="footer-texto text-center">
+        Encuéntranos en calle 19, # 21 alto, entre 6 y Mariana Grajales, reparto La Quinta, o reserva tu cita online.<br/> ¡Tu nuevo estilo te está esperando!
+      </p>
+      <div
+        class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center"
+      >
+        <a
+          title="Yoel Barbershop"
+          href="https://chat.whatsapp.com/BZzKA7jtua47NIzaYXnoOd"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-whatsapp"></i>
+        </a>
+      </div>
+      <div class="derechos-de-autor">
+        Yoel Barbershop (2024) &#169;
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+
+        // Theme toggle functionality
+        window.onload = function () {
+          const body = document.querySelector("body");
+          const themeToggle = document.getElementById("themeToggle");
+
+          themeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            if (body.classList.contains("dark-mode")) {
+              themeToggle.textContent = "☀️";
+            } else {
+              themeToggle.textContent = "🌙";
+            }
+          });
+
+          // Auto-theme detection
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            body.classList.add("dark-mode");
+            themeToggle.textContent = "☀️";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
